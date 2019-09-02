@@ -1,0 +1,72 @@
+{
+  "variant": {
+    "module": {
+      "rootBuildGradleFolder": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks",
+      "sdkFolder": "/Users/goncalopalaio/Library/Android/sdk",
+      "isNativeCompilerSettingsCacheEnabled": false,
+      "isBuildOnlyTargetAbiEnabled": true,
+      "splitsAbiFilterSet": [],
+      "intermediatesFolder": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/build/intermediates",
+      "gradleModulePathName": ":app",
+      "moduleRootFolder": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app",
+      "makeFile": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/src/main/cpp/CMakeLists.txt",
+      "buildSystem": "CMAKE",
+      "compilerSettingsCacheFolder": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/.cxx",
+      "cxxFolder": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/.cxx",
+      "ndkFolder": "/Users/goncalopalaio/Library/Android/sdk/ndk-bundle",
+      "ndkVersion": "20.0.5594570",
+      "ndkSupportedAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkDefaultAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "cmakeToolchainFile": "."
+    },
+    "buildSystemArgumentList": [],
+    "cFlagList": [],
+    "cppFlagsList": [
+      ""
+    ],
+    "variantName": "release",
+    "soFolder": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/build/intermediates/cmake/release/lib",
+    "objFolder": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/build/intermediates/cmake/release/obj",
+    "jsonFolder": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/.cxx/cmake/release",
+    "gradleBuildOutputFolder": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/.cxx/cxx/release",
+    "isDebuggableEnabled": false,
+    "validAbiList": [
+      "ARMEABI_V7A",
+      "ARM64_V8A",
+      "X86",
+      "X86_64"
+    ],
+    "buildTargetSet": []
+  },
+  "abi": "X86_64",
+  "abiPlatformVersion": 19,
+  "cxxBuildFolder": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/.cxx/cmake/release/x86_64",
+  "jsonFile": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/.cxx/cmake/release/x86_64/android_gradle_build.json",
+  "gradleBuildOutputFolder": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/.cxx/cxx/release/x86_64",
+  "objFolder": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/build/intermediates/cmake/release/obj/x86_64",
+  "buildCommandFile": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/.cxx/cmake/release/x86_64/build_command.txt",
+  "buildOutputFile": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/.cxx/cmake/release/x86_64/build_output.txt",
+  "modelOutputFile": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/.cxx/cmake/release/x86_64/build_model.json",
+  "cmake": {
+    "cmakeListsWrapperFile": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/.cxx/cxx/release/x86_64/CMakeLists.txt",
+    "toolchainWrapperFile": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/.cxx/cxx/release/x86_64/android_gradle_build.toolchain.cmake",
+    "buildGenerationStateFile": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/.cxx/cxx/release/x86_64/build_generation_state.json",
+    "cacheKeyFile": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/.cxx/cxx/release/x86_64/compiler_cache_key.json",
+    "compilerCacheUseFile": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/.cxx/cxx/release/x86_64/compiler_cache_use.json",
+    "compilerCacheWriteFile": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/.cxx/cxx/release/x86_64/compiler_cache_write.json",
+    "toolchainSettingsFromCacheFile": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/.cxx/cxx/release/x86_64/compiler_settings_cache.cmake",
+    "cmakeWrappingBaseFolder": "."
+  },
+  "jsonGenerationLoggingRecordFile": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/.cxx/cmake/release/x86_64/json_generation_record.json",
+  "compileCommandsJsonFile": "/Users/goncalopalaio/Documents/projectos-pessoais/Benchmarks/app/.cxx/cmake/release/x86_64/compile_commands.json"
+}
