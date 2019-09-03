@@ -1,5 +1,8 @@
 #include <jni.h>
 #include <string>
+// #include <android/log.h>
+
+#define APP_NAME "Benchmarks-Native"
 
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_gplio_benchmarks_MainActivity_stringFromJNI(
@@ -21,6 +24,8 @@ Java_com_gplio_benchmarks_LogcatBenchmarkActivity_bubbleSortInt
 
     jint *numbers = (*env).GetIntArrayElements(jnumbers, nullptr);
     jsize len = (*env).GetArrayLength(jnumbers);
+
+    // __android_log_print(ANDROID_LOG_VERBOSE, APP_NAME, "Len :: %d", len);
 
     while (true) {
         bool swapped = false;

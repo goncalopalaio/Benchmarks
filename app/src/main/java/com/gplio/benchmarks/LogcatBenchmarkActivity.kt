@@ -39,7 +39,7 @@ class LogcatBenchmarkActivity : AppCompatActivity() {
             Log.d(TAG, "STARTING!!!")
 
             val random = Random()
-            val original = IntArray(9000) { random.nextInt(100) }
+            val original = IntArray(20) { random.nextInt(100) }
 
             val defaultSorted = original.copyOf()
             sort(defaultSorted)
