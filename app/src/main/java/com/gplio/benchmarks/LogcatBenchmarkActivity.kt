@@ -15,8 +15,17 @@ import java.util.Arrays.sort
 import kotlin.system.measureTimeMillis
 
 private const val TAG = "LogcatBenchmark"
-private const val updates = 10000
+
 class LogcatBenchmarkActivity : AppCompatActivity() {
+    companion object {
+
+        // Used to load the 'native-lib' library on application startup.
+        init {
+            System.loadLibrary("native-lib")
+        }
+    }
+
+    external fun bubbleSortInt(ns: IntArray): IntArray
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,64 +36,85 @@ class LogcatBenchmarkActivity : AppCompatActivity() {
 
         startButton.setOnClickListener { view ->
             //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG) .setAction("Action", null).show()
+            Log.d(TAG, "STARTING!!!")
 
             val random = Random()
-            val numbers = IntArray(1000) { random.nextInt(100) }
+            val original = IntArray(9000) { random.nextInt(100) }
 
-            val defaultSorted = numbers.copyOf()
+            val defaultSorted = original.copyOf()
             sort(defaultSorted)
 
-            numberTextView.text = numbers.joinToString()
+            numberTextView.text = original.joinToString()
             sortedTextView.text = defaultSorted.joinToString()
 
             textViewLogs.text = "_"
             textViewNoLogs.text = "_"
+            nativeTextView.text = "_"
 
             val handler = Handler(Looper.getMainLooper())
             Thread {
+                var sum = 0
+                val numbers = original.copyOf()
                 val millis = measureTimeMillis {
-                    bubbleSortWithLogs(numbers)
+                    val res = bubbleSortWithLogs(numbers)
+                    sum = res.sum()
                 }
-
+                Log.d(TAG, "WITH_LOGS SUM: $sum")
                 handler.post {
-                    textViewLogs.text = "FINISHED_WITH_LOGS $millis"
+                    textViewLogs.text = "WITH_LOGS $millis MS"
                 }
             }.start()
 
             Thread {
+                var sum = 0
+                val numbers = original.copyOf()
                 val millis = measureTimeMillis {
-                    bubbleSortWithoutLogs(numbers)
+                    val res = bubbleSortWithoutLogs(numbers)
+                    sum = res.sum()
                 }
-
+                Log.d(TAG, "WITHOUT_LOGS SUM: $sum")
                 handler.post {
-                    textViewNoLogs.text = "FINISHED_WITHOUT_LOGS $millis"
+                    textViewNoLogs.text = "WITHOUT_LOGS $millis MS"
+                }
+            }.start()
+
+            Thread {
+                val numbers = original.copyOf()
+                var sum = 0
+                val millis = measureTimeMillis {
+                    val res = bubbleSortInt(numbers)
+                    // Log.d(TAG, "NATIVE RESULT: ${res.joinToString()}")
+                    sum = res.sum()
+                }
+                Log.d(TAG, "NATIVE SUM: $sum")
+                handler.post {
+                    nativeTextView.text = "NATIVE $millis MS "
                 }
             }.start()
         }
     }
 
-    private fun bubbleSortWithLogs(ns: IntArray): IntArray {
-        val numbers = ns.copyOf()
-
-        Log.d(TAG, "BEGIN: bubbleSort: ${numbers.joinToString()}")
+    private fun bubbleSortWithLogs(numbers: IntArray): IntArray {
+        val tag = "bubbleSortWithLogs"
+        Log.d(tag, "BEGIN: bubbleSort: ${numbers.joinToString()}")
 
         while (true) {
             var swapped = false
             for (i in 0 until numbers.size - 1) {
                 if (numbers[i] > numbers[i + 1]) {
-                    Log.d(TAG, "START: bubbleSort: ${numbers[i]} ${numbers[i + 1]}")
+                    Log.d(tag, "START: bubbleSort: ${numbers[i]} ${numbers[i + 1]}")
 
                     val t = numbers[i + 1]
                     numbers[i + 1] = numbers[i]
                     numbers[i] = t
                     swapped = true
 
-                    Log.d(TAG, "END: bubbleSort: ${numbers[i]} ${numbers[i + 1]}")
+                    Log.d(tag, "END: bubbleSort: ${numbers[i]} ${numbers[i + 1]}")
                 } else {
-                    Log.d(TAG, "END: bubbleSort: Continuing")
+                    Log.d(tag, "END: bubbleSort: Continuing")
                 }
             }
-            Log.d(TAG, "bubbleSort: $swapped")
+            Log.d(tag, "bubbleSort: $swapped")
             if (!swapped) {
                 break
             }
@@ -93,8 +123,7 @@ class LogcatBenchmarkActivity : AppCompatActivity() {
     }
 
 
-    private fun bubbleSortWithoutLogs(ns: IntArray): IntArray {
-        val numbers = ns.copyOf()
+    private fun bubbleSortWithoutLogs(numbers: IntArray): IntArray {
         while (true) {
             var swapped = false
             for (i in 0 until numbers.size - 1) {
@@ -111,6 +140,4 @@ class LogcatBenchmarkActivity : AppCompatActivity() {
         }
         return numbers
     }
-
-
 }
