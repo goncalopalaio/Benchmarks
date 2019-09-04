@@ -10,6 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".IfElseActivity"
+            android:label="@string/title_activity_if_else"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".LogcatBenchmarkActivity"
             android:label="@string/title_activity_logcat_benchmark"
             android:theme="@style/AppTheme.NoActionBar">

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Benchmarks</string>
     <string name="title_activity_logcat_benchmark">LogcatBenchmark</string>
+    <string name="title_activity_if_else">IfElseActivity</string>
 </resources>

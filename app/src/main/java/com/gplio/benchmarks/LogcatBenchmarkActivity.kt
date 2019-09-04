@@ -13,19 +13,18 @@ import kotlinx.android.synthetic.main.content_logcat_benchmark.*
 import java.util.*
 import java.util.Arrays.sort
 import kotlin.system.measureTimeMillis
-
+//
+// TODO - Use bytebuffer to pass data into native method.
+//
 private const val TAG = "LogcatBenchmark"
-
 class LogcatBenchmarkActivity : AppCompatActivity() {
     companion object {
-
-        // Used to load the 'native-lib' library on application startup.
         init {
             System.loadLibrary("native-lib")
         }
     }
 
-    external fun bubbleSortInt(ns: IntArray): IntArray
+    private external fun bubbleSortInt(ns: IntArray): IntArray
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +38,7 @@ class LogcatBenchmarkActivity : AppCompatActivity() {
             Log.d(TAG, "STARTING!!!")
 
             val random = Random()
-            val original = IntArray(20) { random.nextInt(100) }
+            val original = IntArray(1000) { random.nextInt(100) }
 
             val defaultSorted = original.copyOf()
             sort(defaultSorted)
